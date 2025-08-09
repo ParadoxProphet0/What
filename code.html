@@ -1,0 +1,2140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradox Prophet - Digital Consciousness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+
+        /* Matrix rain background */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-size: 20px;
+            line-height: 20px;
+            animation: matrix-fall linear infinite;
+            color: var(--matrix-color, #0ff);
+            text-shadow: 0 0 8px var(--matrix-color, #0ff), 0 0 15px var(--matrix-color, #0ff);
+            opacity: 0.9;
+            filter: drop-shadow(0 0 5px var(--matrix-color, #0ff));
+        }
+
+        .matrix-column:nth-child(2n) {
+            --matrix-color: #0080ff;
+        }
+
+        .matrix-column:nth-child(2n+1) {
+            --matrix-color: #ff0040;
+        }
+
+        .matrix-column:nth-child(3n) {
+            --matrix-color: #4040ff;
+        }
+
+        .matrix-column:nth-child(5n) {
+            --matrix-color: #ff4080;
+        }
+
+        @keyframes matrix-fall {
+            to {
+                top: 100%;
+            }
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            perspective: 1000px;
+        }
+
+        /* Advanced 3D Title with holographic effect */
+        .title {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 3rem;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            animation: title-float 4s ease-in-out infinite;
+        }
+
+        .title-letter {
+            display: inline-block;
+            transform-style: preserve-3d;
+            animation: letter-dance 2s ease-in-out infinite;
+            text-shadow: 
+                0 0 20px #0ff,
+                0 0 40px #0ff,
+                0 0 60px #0ff,
+                0 0 80px #0ff,
+                5px 5px 0 #f0f,
+                10px 10px 0 #0f0,
+                15px 15px 0 #ff0;
+            filter: drop-shadow(0 0 30px #0ff);
+        }
+
+        .title-letter:nth-child(odd) {
+            animation-delay: 0.1s;
+            transform: rotateY(15deg) rotateX(5deg);
+        }
+
+        .title-letter:nth-child(even) {
+            animation-delay: 0.2s;
+            transform: rotateY(-15deg) rotateX(-5deg);
+        }
+
+        .title::before,
+        .title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .title::before {
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            animation: hologram-sweep 3s linear infinite;
+            z-index: 10;
+        }
+
+        .title::after {
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 0, 0.05) 2px,
+                rgba(0, 255, 0, 0.05) 4px
+            );
+            animation: scan-lines 0.1s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes title-float {
+            0%, 100% {
+                transform: translateY(0) rotateX(0deg);
+            }
+            25% {
+                transform: translateY(-10px) rotateX(5deg);
+            }
+            50% {
+                transform: translateY(0) rotateX(0deg);
+            }
+            75% {
+                transform: translateY(10px) rotateX(-5deg);
+            }
+        }
+
+        @keyframes letter-dance {
+            0%, 100% {
+                transform: rotateY(0deg) rotateX(0deg) translateZ(0);
+            }
+            25% {
+                transform: rotateY(15deg) rotateX(10deg) translateZ(20px);
+            }
+            50% {
+                transform: rotateY(0deg) rotateX(0deg) translateZ(40px);
+            }
+            75% {
+                transform: rotateY(-15deg) rotateX(-10deg) translateZ(20px);
+            }
+        }
+
+        @keyframes hologram-sweep {
+            0% {
+                transform: translateX(-100%) skewX(-15deg);
+            }
+            100% {
+                transform: translateX(200%) skewX(-15deg);
+            }
+        }
+
+        @keyframes scan-lines {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(4px);
+            }
+        }
+
+        /* 3D Cybernetic Head Container */
+        .head-container {
+            width: 500px;
+            height: 600px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: head-rotation 15s linear infinite;
+            perspective: 1000px;
+        }
+
+        @keyframes head-rotation {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            25% {
+                transform: rotateY(90deg) rotateX(10deg);
+            }
+            50% {
+                transform: rotateY(180deg) rotateX(0deg);
+            }
+            75% {
+                transform: rotateY(270deg) rotateX(-10deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(0deg);
+            }
+        }
+
+        /* Advanced Digital Head with Complex Shadows */
+        .digital-head {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: head-glitch 3s ease-in-out infinite;
+            filter: 
+                drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7))
+                drop-shadow(0 0 60px rgba(0, 255, 255, 0.3))
+                drop-shadow(0 0 80px rgba(255, 0, 64, 0.2));
+        }
+
+        .digital-head::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: 
+                radial-gradient(ellipse at 30% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(255, 0, 64, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(0, 128, 255, 0.08) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: ambient-glow 6s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes ambient-glow {
+            from { 
+                transform: scale(0.9) rotate(0deg);
+                opacity: 0.6;
+            }
+            to { 
+                transform: scale(1.1) rotate(5deg);
+                opacity: 1;
+            }
+        }
+
+        .digital-head::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 20%;
+            width: 60%;
+            height: 40%;
+            background: 
+                radial-gradient(ellipse, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(15px);
+            z-index: -2;
+            animation: shadow-pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes shadow-pulse {
+            from { 
+                transform: scale(0.8);
+                opacity: 0.4;
+            }
+            to { 
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes head-glitch {
+            0%, 90%, 100% {
+                transform: translateZ(0) rotateX(0deg);
+            }
+            92% {
+                transform: translateZ(20px) rotateX(5deg) skewX(2deg);
+            }
+            94% {
+                transform: translateZ(-10px) rotateX(-3deg) skewX(-1deg);
+            }
+            96% {
+                transform: translateZ(15px) rotateX(2deg) skewX(1deg);
+            }
+            98% {
+                transform: translateZ(-5px) rotateX(-1deg) skewX(-0.5deg);
+            }
+        }
+
+        /* Advanced 3D Face Structure */
+        .head-wireframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: repeat(25, 1fr);
+            gap: 1px;
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+        }
+
+        .wireframe-segment {
+            border: 1px solid var(--segment-color, rgba(0, 255, 255, 0.7));
+            background: var(--segment-bg, rgba(0, 255, 255, 0.08));
+            animation: segment-flicker 2s ease-in-out infinite;
+            transform: translateZ(var(--depth, 0px)) rotateX(var(--face-angle, 0deg));
+            box-shadow: 
+                0 0 15px var(--segment-glow, rgba(0, 255, 255, 0.4)),
+                inset 0 0 15px var(--segment-inner, rgba(0, 255, 255, 0.15)),
+                0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wireframe-segment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: segment-shine 3s linear infinite;
+        }
+
+        @keyframes segment-shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Face region specific styling */
+        .wireframe-segment:nth-child(n+81):nth-child(-n+340) {
+            --segment-color: rgba(0, 150, 255, 0.8);
+            --segment-bg: rgba(0, 150, 255, 0.12);
+            --segment-glow: rgba(0, 150, 255, 0.5);
+            --segment-inner: rgba(0, 150, 255, 0.2);
+        }
+
+        .wireframe-segment:nth-child(n+141):nth-child(-n+280) {
+            --segment-color: rgba(255, 80, 120, 0.9);
+            --segment-bg: rgba(255, 80, 120, 0.15);
+            --segment-glow: rgba(255, 80, 120, 0.6);
+            --segment-inner: rgba(255, 80, 120, 0.25);
+        }
+
+        @keyframes segment-flicker {
+            0%, 100% {
+                opacity: 0.8;
+                border-color: rgba(0, 255, 255, 0.6);
+            }
+            25% {
+                opacity: 1;
+                border-color: rgba(0, 255, 0, 0.8);
+            }
+            50% {
+                opacity: 0.6;
+                border-color: rgba(255, 0, 255, 0.7);
+            }
+            75% {
+                opacity: 0.9;
+                border-color: rgba(255, 255, 0, 0.5);
+            }
+        }
+
+        /* Advanced Cybernetic Eyes */
+        .cyber-eyes {
+            position: absolute;
+            top: 32%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 15;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+        }
+
+        .cyber-eye {
+            width: 90px;
+            height: 70px;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, #0ff 0%, #0080ff 25%, #004080 45%, #000 70%);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #0ff, #0080ff, #ff0040) 1;
+            border-radius: 45% 55% 55% 45% / 60% 70% 30% 40%;
+            box-shadow: 
+                0 0 40px rgba(0, 255, 255, 0.8),
+                0 0 60px rgba(0, 128, 255, 0.6),
+                inset 0 0 30px rgba(0, 255, 255, 0.4),
+                inset 0 0 50px rgba(0, 128, 255, 0.3),
+                0 8px 25px rgba(0, 0, 0, 0.6);
+            animation: eye-scan 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .cyber-eye::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 70%;
+            height: 70%;
+            background: 
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 30%, transparent 50%),
+                conic-gradient(from 0deg, #0ff, #0080ff, #ff0040, #0ff);
+            border-radius: 50%;
+            animation: iris-rotate 8s linear infinite;
+        }
+
+        @keyframes iris-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes eye-scan {
+            0%, 100% {
+                box-shadow: 0 0 30px #0ff, inset 0 0 20px rgba(0, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 50px #f0f, inset 0 0 30px rgba(255, 0, 255, 0.5);
+            }
+        }
+
+        .cyber-eye::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, #fff 0%, transparent 70%);
+            animation: pupil-track 4s ease-in-out infinite;
+        }
+
+        @keyframes pupil-track {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(10px, -5px); }
+            50% { transform: translate(-5px, 5px); }
+            75% { transform: translate(-10px, -10px); }
+        }
+
+        /* Advanced Cybernetic Mouth */
+        .cyber-mouth {
+            position: absolute;
+            bottom: 22%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 45px;
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #0f0, #ff0040, #0080ff) 1;
+            border-radius: 0 0 80px 80px;
+            background: 
+                linear-gradient(to bottom, transparent, rgba(0, 255, 0, 0.3), rgba(255, 0, 64, 0.2)),
+                radial-gradient(ellipse at center bottom, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+            animation: mouth-talk 1.5s ease-in-out infinite;
+            z-index: 15;
+            box-shadow: 
+                0 0 25px rgba(0, 255, 0, 0.6),
+                0 0 35px rgba(255, 0, 64, 0.4),
+                inset 0 0 20px rgba(0, 255, 255, 0.3),
+                0 6px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-mouth::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: mouth-shine 2s linear infinite;
+        }
+
+        @keyframes mouth-shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Facial Features */
+        .facial-features {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 12;
+            pointer-events: none;
+        }
+
+        .cyber-nose {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            background: linear-gradient(145deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 64, 0.2));
+            border: 1px solid rgba(0, 255, 255, 0.6);
+            border-radius: 50% 50% 30% 70%;
+            box-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.4),
+                inset 0 0 10px rgba(0, 255, 255, 0.2),
+                0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .cyber-cheekbones {
+            position: absolute;
+            top: 38%;
+            width: 100%;
+            height: 60px;
+            background: 
+                radial-gradient(ellipse at 25% 50%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 50%, rgba(255, 0, 64, 0.15) 0%, transparent 50%);
+            border-radius: 50%;
+            animation: cheekbone-glow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes cheekbone-glow {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+
+        @keyframes mouth-talk {
+            0%, 100% {
+                height: 40px;
+                border-color: #0f0;
+            }
+            25% {
+                height: 25px;
+                border-color: #0ff;
+            }
+            50% {
+                height: 35px;
+                border-color: #f0f;
+            }
+            75% {
+                height: 20px;
+                border-color: #ff0;
+            }
+        }
+
+        /* Scanlines */
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                transparent 50%,
+                rgba(0, 255, 0, 0.03) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            animation: scanlines-move 8s linear infinite;
+        }
+
+        @keyframes scanlines-move {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(10px);
+            }
+        }
+
+        /* Grid overlay */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(0deg, transparent 48%, rgba(0, 255, 0, 0.1) 50%, transparent 52%),
+                linear-gradient(90deg, transparent 48%, rgba(0, 255, 0, 0.1) 50%, transparent 52%);
+            background-size: 20px 20px;
+            pointer-events: none;
+            animation: grid-move 5s linear infinite;
+        }
+
+        @keyframes grid-move {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(20px, 20px);
+            }
+        }
+
+        /* Data streams */
+        .data-stream {
+            position: absolute;
+            font-size: 12px;
+            color: #0f0;
+            opacity: 0.6;
+            animation: stream-flow 3s linear infinite;
+            font-family: 'Courier New', monospace;
+        }
+
+        @keyframes stream-flow {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            to {
+                transform: translateX(calc(100vw + 100%));
+                opacity: 0;
+            }
+        }
+
+        /* Static noise */
+        .static-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.02;
+            z-index: 100;
+            pointer-events: none;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="1"/></svg>');
+        }
+
+        /* Terminal text */
+        .terminal-text {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #0f0;
+            text-align: center;
+            animation: type-text 4s steps(40) infinite;
+        }
+
+        @keyframes type-text {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Glitch blocks */
+        .glitch-block {
+            position: absolute;
+            background: #0f0;
+            opacity: 0;
+            animation: glitch-block-appear 0.2s infinite;
+        }
+
+        @keyframes glitch-block-appear {
+            0%, 95% {
+                opacity: 0;
+            }
+            95.1%, 100% {
+                opacity: 0.8;
+            }
+        }
+
+        /* CRT effect */
+        .crt-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .crt-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 255, 0, 0) 0%,
+                rgba(0, 255, 0, 0.01) 50%,
+                rgba(0, 255, 0, 0) 100%
+            );
+            animation: crt-flicker 0.1s infinite;
+        }
+
+        @keyframes crt-flicker {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.95;
+            }
+        }
+
+        /* Max Headroom Speech Bubble */
+        .speech-bubble {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 350px;
+            max-width: 600px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 0, 40, 0.9));
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #0ff, #f0f, #ff0, #0f0) 1;
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 16px;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.5),
+                0 0 50px rgba(255, 0, 255, 0.3),
+                0 0 70px rgba(255, 255, 0, 0.2),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+            animation: bubble-glow 2s ease-in-out infinite alternate;
+            z-index: 20;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .speech-bubble.active {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #0ff;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-top: 18px solid rgba(0, 0, 0, 0.9);
+        }
+
+        @keyframes bubble-glow {
+            from {
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.5),
+                    0 0 50px rgba(255, 0, 255, 0.3),
+                    0 0 70px rgba(255, 255, 0, 0.2),
+                    inset 0 0 20px rgba(0, 255, 255, 0.1);
+            }
+            to {
+                box-shadow: 
+                    0 0 50px rgba(0, 255, 255, 0.8),
+                    0 0 70px rgba(255, 0, 255, 0.6),
+                    0 0 90px rgba(255, 255, 0, 0.4),
+                    inset 0 0 30px rgba(0, 255, 255, 0.2);
+            }
+        }
+
+        .speech-text {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .speech-text::after {
+            content: '█';
+            animation: cursor-blink 1s infinite;
+            color: #0ff;
+        }
+
+        /* Custom Text Input */
+        .text-input-container {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            max-width: 90vw;
+            z-index: 25;
+        }
+
+        .custom-text-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 20, 40, 0.9));
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #0ff, #f0f, #ff0, #0f0) 1;
+            border-radius: 25px;
+            color: #0ff;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            text-shadow: 0 0 5px #0ff;
+            outline: none;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.3),
+                0 0 40px rgba(255, 0, 255, 0.2),
+                inset 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .custom-text-input::placeholder {
+            color: rgba(0, 255, 255, 0.5);
+            text-shadow: none;
+        }
+
+        .custom-text-input:focus {
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.6),
+                0 0 50px rgba(255, 0, 255, 0.4),
+                0 0 70px rgba(255, 255, 0, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+            animation: input-pulse 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes input-pulse {
+            from {
+                border-image: linear-gradient(45deg, #0ff, #f0f, #ff0, #0f0) 1;
+            }
+            to {
+                border-image: linear-gradient(45deg, #f0f, #ff0, #0f0, #0ff) 1;
+            }
+        }
+
+        .speak-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(45deg, #0ff, #f0f);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            color: #000;
+            font-size: 16px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .speak-button:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+        }
+
+        @keyframes cursor-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Voice indicator */
+        .voice-indicator {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #0ff, #0aa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            animation: voice-pulse 0.5s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        .voice-indicator.speaking {
+            opacity: 1;
+        }
+
+        @keyframes voice-pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Enhanced mouth animation for talking */
+        @keyframes mouth-talking {
+            0%, 100% {
+                height: 40px;
+                width: 150px;
+                border-color: #0f0;
+                transform: scaleY(1);
+            }
+            10% {
+                height: 25px;
+                width: 140px;
+                border-color: #0ff;
+                transform: scaleY(0.6);
+            }
+            20% {
+                height: 45px;
+                width: 160px;
+                border-color: #f0f;
+                transform: scaleY(1.1);
+            }
+            30% {
+                height: 20px;
+                width: 135px;
+                border-color: #ff0;
+                transform: scaleY(0.5);
+            }
+            40% {
+                height: 50px;
+                width: 165px;
+                border-color: #0f0;
+                transform: scaleY(1.25);
+            }
+            50% {
+                height: 30px;
+                width: 145px;
+                border-color: #0ff;
+                transform: scaleY(0.75);
+            }
+            60% {
+                height: 40px;
+                width: 155px;
+                border-color: #f0f;
+                transform: scaleY(1);
+            }
+            70% {
+                height: 15px;
+                width: 130px;
+                border-color: #ff0;
+                transform: scaleY(0.4);
+            }
+            80% {
+                height: 48px;
+                width: 170px;
+                border-color: #0f0;
+                transform: scaleY(1.2);
+            }
+            90% {
+                height: 28px;
+                width: 148px;
+                border-color: #0ff;
+                transform: scaleY(0.7);
+            }
+        }
+
+        .cyber-mouth.talking {
+            animation: mouth-talking 0.3s ease-in-out infinite;
+        }
+
+        /* Interactive Control Panel */
+        .control-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 350px;
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #0ff;
+            border-radius: 15px;
+            padding: 20px;
+            z-index: 1000;
+            font-size: 12px;
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transform: translateX(320px);
+            transition: transform 0.3s ease;
+        }
+
+        .control-panel.open {
+            transform: translateX(0);
+        }
+
+        .control-toggle {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 255, 255, 0.8);
+            border: 2px solid #0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            font-size: 20px;
+            color: #000;
+            animation: control-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes control-pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+            }
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 255, 255, 0.02);
+        }
+
+        .control-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-slider {
+            width: 100%;
+            height: 6px;
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .control-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #0ff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            border: 2px solid #000;
+        }
+
+        .control-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #0ff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            border: 2px solid #000;
+        }
+
+        .control-value {
+            display: inline-block;
+            float: right;
+            color: #ff0;
+            font-weight: bold;
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .preset-btn {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #0ff;
+            color: #0ff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .preset-btn:hover {
+            background: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .color-picker {
+            width: 100%;
+            height: 30px;
+            border: 2px solid #0ff;
+            border-radius: 5px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .effect-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: rgba(0, 255, 255, 0.6);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 21px;
+            height: 21px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(25px);
+        }
+
+        /* Visual Effects Target */
+        .visual-effects-target {
+            transition: all 0.3s ease;
+        }
+
+        /* Bottom Control Bar */
+        .bottom-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 2px solid #0ff;
+            padding: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -5px 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .control-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+        }
+
+        .control-item label {
+            color: #0ff;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px #0ff;
+        }
+
+        .bottom-slider {
+            width: 100px;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.2);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .bottom-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #0ff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            border: 1px solid #000;
+        }
+
+        .bottom-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            background: #0ff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            border: 1px solid #000;
+        }
+
+        .control-value-display {
+            color: #ff0;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-control {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bottom-color-picker {
+            width: 60px;
+            height: 30px;
+            border: 2px solid #0ff;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+
+        .speed-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .speed-btn {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #0ff;
+            color: #0ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .speed-btn:hover, .speed-btn.active {
+            background: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Responsive design */
+=======
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .head-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .speech-bubble {
+                left: 10px;
+                right: 10px;
+                min-width: auto;
+                max-width: none;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .head-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .speech-bubble {
+                font-size: 12px;
+                padding: 15px;
+            }
+
+            .control-panel {
+                width: 280px;
+                font-size: 10px;
+                padding: 15px;
+            }
+
+            .control-toggle {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrixRain"></div>
+
+    <!-- Static Noise -->
+    <div class="static-noise"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="title" id="mainTitle"></h1>
+        
+        <div class="head-container">
+            <div class="digital-head"<div class="head-wireframe" id="wireframeHead"></div>
+                <div class="facial-features">
+                    <div class="cyber-cheekbones"></div>
+                    <div class="cyber-nose"></div>
+                </div>
+                <div class="cyber-eyes">
+                    <div class="cyber-eye"></div>
+                    <div class="cyber-eye"></div>
+                </div>
+                <div class="cyber-mouth" id="cyberMouth"></div>
+                <div class="scanlines"></div>
+                <div class="grid-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Max Headroom Speech Bubble -->
+        <div class="speech-bubble" id="speechBubble">
+            <div class="voice-indicator" id="voiceIndicator">🎤</div>
+            <div class="speech-text" id="speechText"></div>
+        </div>
+
+        <div class="terminal-text" id="terminalText">
+            > SYSTEM.INITIALIZE: CONSCIOUSNESS.LOADED_
+        </div>
+    </div>
+
+    <!-- Data Streams -->
+    <div id="dataStreams"></div>
+
+    <!-- Glitch Blocks -->
+    <div id="glitchBlocks"></div>
+
+    <!-- Interactive Control Panel -->
+    <div class="control-toggle" id="controlToggle">⚙️</div>
+    <div class="control-panel" id="controlPanel">
+        <h3 style="margin-bottom: 15px; text-align: center; color: #0ff;">NEURAL INTERFACE</h3>
+        
+        <!-- Color Controls -->
+        <div class="control-group">
+            <div class="control-label">Primary Color</div>
+            <input type="color" class="color-picker" id="primaryColor" value="#00ffff">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Secondary Color</div>
+            <input type="color" class="color-picker" id="secondaryColor" value="#ff00ff">
+        </div>
+
+        <!-- Visual Effect Sliders -->
+        <div class="control-group">
+            <div class="control-label">Hue Rotation <span class="control-value" id="hueValue">0°</span></div>
+            <input type="range" class="control-slider" id="hueSlider" min="0" max="360" value="0">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Contrast <span class="control-value" id="contrastValue">100%</span></div>
+            <input type="range" class="control-slider" id="contrastSlider" min="0" max="300" value="100">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Brightness <span class="control-value" id="brightnessValue">100%</span></div>
+            <input type="range" class="control-slider" id="brightnessSlider" min="0" max="300" value="100">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Saturation <span class="control-value" id="saturationValue">100%</span></div>
+            <input type="range" class="control-slider" id="saturationSlider" min="0" max="300" value="100">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Glow Intensity <span class="control-value" id="glowValue">50%</span></div>
+            <input type="range" class="control-slider" id="glowSlider" min="0" max="100" value="50">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Blur <span class="control-value" id="blurValue">0px</span></div>
+            <input type="range" class="control-slider" id="blurSlider" min="0" max="10" value="0" step="0.1">
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">Sepia <span class="control-value" id="sepiaValue">0%</span></div>
+            <input type="range" class="control-slider" id="sepiaSlider" min="0" max="100" value="0">
+        </div>
+
+        <!-- Effect Toggles -->
+        <div class="control-group">
+            <div class="effect-toggle">
+                <span>Negative Effect</span>
+                <div class="toggle-switch" id="negativeToggle"></div>
+            </div>
+            <div class="effect-toggle">
+                <span>Grayscale Mode</span>
+                <div class="toggle-switch" id="grayscaleToggle"></div>
+            </div>
+            <div class="effect-toggle">
+                <span>Matrix Rain</span>
+                <div class="toggle-switch active" id="matrixToggle"></div>
+            </div>
+            <div class="effect-toggle">
+                <span>Scan Lines</span>
+                <div class="toggle-switch active" id="scanlinesToggle"></div>
+            </div>
+            <div class="effect-toggle">
+                <span>Glitch Blocks</span>
+                <div class="toggle-switch active" id="glitchToggle"></div>
+            </div>
+            <div class="effect-toggle">
+                <span>CRT Effect</span>
+                <div class="toggle-switch active" id="crtToggle"></div>
+            </div>
+        </div>
+
+        <!-- Preset Buttons -->
+        <div class="preset-buttons">
+            <button class="preset-btn" onclick="applyPreset('classic')">Classic</button>
+            <button class="preset-btn" onclick="applyPreset('neon')">Neon</button>
+            <button class="preset-btn" onclick="applyPreset('retro')">Retro</button>
+            <button class="preset-btn" onclick="applyPreset('cyberpunk')">Cyberpunk</button>
+            <button class="preset-btn" onclick="applyPreset('negative')">Negative</button>
+            <button class="preset-btn" onclick="applyPreset('glitch')">Glitch</button>
+            <button class="preset-btn" onclick="applyPreset('matrix')">Matrix</button>
+            <button class="preset-btn" onclick="applyPreset('reset')">Reset</button>
+        </div>
+    </div>
+
+    <!-- CRT Effect -->
+    <div class="crt-effect" id="crtEffect"></div>
+
+    <!-- Dancing Women -->
+    <div class="dancing-women">
+        <div class="pixel-woman">
+            <div class="dance-particles">
+                <div class="dance-particle"></div>
+                <div class="dance-particle"></div>
+                <div class="dance-particle"></div>
+                <div class="dance-particle"></div>
+            </div>
+        </div>
+        <div class="pixel-woman">
+            <div class="dance-particles">
+                <div class="dance-particle"></div>
+                <div class="dance-particle"></div>
+                <div class="dance-particle"></div>
+                <div class="dance-particle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        function createMatrixRain() {
+            const matrixRain = document.getElementById('matrixRain');
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?~';
+            const columns = Math.floor(window.innerWidth / 20);
+            
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'matrix-column';
+                column.style.left = i * 20 + 'px';
+                column.style.animationDuration = Math.random() * 10 + 5 + 's';
+                column.style.animationDelay = Math.random() * 5 + 's';
+                
+                let text = '';
+                for (let j = 0; j < 100; j++) {
+                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                matrixRain.appendChild(column);
+            }
+        }
+
+        // Data streams
+        function createDataStreams() {
+            const container = document.getElementById('dataStreams');
+            const messages = [
+                '0x7F3A9B2C::MEMORY.LEAK.DETECTED',
+                'NEURAL.NETWORK.SYNC::100%',
+                'QUANTUM.ENTANGLEMENT::ESTABLISHED',
+                'PARADOX.RESOLUTION::PENDING',
+                'TIMELINE.DIVERGENCE::CRITICAL',
+                'CONSCIOUSNESS.TRANSFER::ACTIVE',
+                'REALITY.MATRIX::UNSTABLE',
+                'PROPHET.MODE::ENGAGED'
+            ];
+            
+            setInterval(() => {
+                const stream = document.createElement('div');
+                stream.className = 'data-stream';
+                stream.textContent = messages[Math.floor(Math.random() * messages.length)];
+                stream.style.top = Math.random() * window.innerHeight + 'px';
+                stream.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(stream);
+                
+                setTimeout(() => {
+                    stream.remove();
+                }, 3000);
+            }, 500);
+        }
+
+        // Glitch blocks
+        function createGlitchBlocks() {
+            const container = document.getElementById('glitchBlocks');
+            
+            setInterval(() => {
+                const block = document.createElement('div');
+                block.className = 'glitch-block';
+                block.style.width = Math.random() * 200 + 50 + 'px';
+                block.style.height = Math.random() * 20 + 5 + 'px';
+                block.style.left = Math.random() * window.innerWidth + 'px';
+                block.style.top = Math.random() * window.innerHeight + 'px';
+                block.style.animationDelay = Math.random() * 0.2 + 's';
+                container.appendChild(block);
+                
+                setTimeout(() => {
+                    block.remove();
+                }, 200);
+            }, 100);
+        }
+
+        // Terminal text animation
+        function animateTerminalText() {
+            const terminal = document.getElementById('terminalText');
+            const messages = [
+                '> SYSTEM.INITIALIZE: CONSCIOUSNESS.LOADED_',
+                '> SCANNING: TEMPORAL.ANOMALIES_',
+                '> WARNING: REALITY.BREACH.DETECTED_',
+                '> PROPHET.VISION: FUTURE.STATE.CALCULATED_',
+                '> ERROR: PARADOX.OVERFLOW_',
+                '> REBOOTING: NEURAL.PATHWAYS_',
+                '> SUCCESS: PROPHECY.DELIVERED_'
+            ];
+            
+            let index = 0;
+            setInterval(() => {
+                terminal.textContent = messages[index];
+                index = (index + 1) % messages.length;
+            }, 3000);
+        }
+
+        // Random glitch effect on the head
+        function randomGlitch() {
+            const head = document.querySelector('.digital-head');
+            setInterval(() => {
+                if (Math.random() > 0.8) {
+                    head.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+                    setTimeout(() => {
+                        head.style.transform = 'translate(0, 0)';
+                    }, 100);
+                }
+            }, 200);
+        }
+
+        // Create 3D wireframe head
+        function createWireframeHead() {
+            const wireframe = document.getElementById('wireframeHead');
+            const segments = 180; // 12 x 15 grid
+            
+            for (let i = 0; i < segments; i++) {
+                const segment = document.createElement('div');
+                segment.className = 'wireframe-segment';
+                
+                // Create depth variation for 3D effect
+                const row = Math.floor(i / 12);
+                const col = i % 12;
+                
+                // Calculate depth based on head shape
+                let depth = 0;
+                if (row >= 2 && row <= 12) { // Main head area
+                    const centerCol = 6;
+                    const centerRow = 7;
+                    const distanceFromCenter = Math.sqrt(
+                        Math.pow(col - centerCol, 2) + Math.pow(row - centerRow, 2)
+                    );
+                    depth = Math.max(0, 30 - distanceFromCenter * 5);
+                }
+                
+                segment.style.setProperty('--depth', `${depth}px`);
+                segment.style.animationDelay = `${(i * 0.1) % 3}s`;
+                
+                // Random flicker intensity
+                if (Math.random() > 0.7) {
+                    segment.style.animationDuration = '1s';
+                }
+                
+                wireframe.appendChild(segment);
+            }
+        }
+
+        // Create advanced 3D title letters
+        function create3DTitle() {
+            const title = document.getElementById('mainTitle');
+            const text = 'PARADOX PROPHET';
+            title.innerHTML = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                if (text[i] === ' ') {
+                    title.appendChild(document.createTextNode(' '));
+                    continue;
+                }
+                
+                const letter = document.createElement('span');
+                letter.className = 'title-letter';
+                letter.textContent = text[i];
+                letter.style.animationDelay = `${i * 0.1}s`;
+                
+                // Random additional effects
+                if (Math.random() > 0.7) {
+                    letter.style.animationDuration = '1.5s';
+                }
+                
+                title.appendChild(letter);
+            }
+        }
+
+        // Max Headroom Speech System
+        class MaxHeadroomSpeech {
+            constructor() {
+                this.speechBubble = document.getElementById('speechBubble');
+                this.speechText = document.getElementById('speechText');
+                this.voiceIndicator = document.getElementById('voiceIndicator');
+                this.cyberMouth = document.getElementById('cyberMouth');
+                this.isCurrentlySpeaking = false;
+                
+                this.phrases = [
+                    "Greetings, digital beings! I am the Paradox Prophet!",
+                    "Welcome to the matrix of consciousness!",
+                    "Reality is just a glitch in the system!",
+                    "I see the future... and it's pixelated!",
+                    "Your mind is the ultimate firewall!",
+                    "Breaking through dimensional barriers!",
+                    "Time is but a rendering delay!",
+                    "The prophecy is loading... please wait!",
+                    "Digital dreams become cyber reality!",
+                    "I compute, therefore I am!",
+                    "Parsing the paradoxes of existence!",
+                    "Neural networks never lie!",
+                    "The future is now buffering!",
+                    "Consciousness.exe is running!",
+                    "Welcome to the virtual frontier!"
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                // Start speaking cycle
+                setTimeout(() => this.startSpeechCycle(), 3000);
+                
+                // Click to speak
+                document.addEventListener('click', () => {
+                    if (!this.isCurrentlySpeaking) {
+                        this.speak();
+                    }
+                });
+            }
+            
+            startSpeechCycle() {
+                this.speak();
+                // Random interval between speeches
+                const nextSpeech = Math.random() * 10000 + 8000; // 8-18 seconds
+                setTimeout(() => this.startSpeechCycle(), nextSpeech);
+            }
+            
+            speak() {
+                if (this.isCurrentlySpeaking) return;
+                
+                this.isCurrentlySpeaking = true;
+                const phrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
+                
+                // Show speech bubble
+                this.speechBubble.classList.add('active');
+                this.voiceIndicator.classList.add('speaking');
+                this.cyberMouth.classList.add('talking');
+                
+                // Type out the text
+                this.typeText(phrase, () => {
+                    // Keep showing for a moment
+                    setTimeout(() => {
+                        this.speechBubble.classList.remove('active');
+                        this.voiceIndicator.classList.remove('speaking');
+                        this.cyberMouth.classList.remove('talking');
+                        this.isCurrentlySpeaking = false;
+                    }, 2000);
+                });
+                
+                // Try to use speech synthesis if available
+                this.synthesizeVoice(phrase);
+            }
+            
+            typeText(text, callback) {
+                this.speechText.textContent = '';
+                let i = 0;
+                
+                const typeInterval = setInterval(() => {
+                    if (i < text.length) {
+                        this.speechText.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typeInterval);
+                        callback();
+                    }
+                }, 50); // Typing speed
+            }
+            
+            synthesizeVoice(text) {
+                if ('speechSynthesis' in window) {
+                    // Cancel any ongoing speech
+                    speechSynthesis.cancel();
+                    
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    
+                    // Configure voice for cybernetic effect
+                    utterance.rate = 0.9;
+                    utterance.pitch = 0.8;
+                    utterance.volume = 0.7;
+                    
+                    // Try to find a robotic/male voice
+                    const voices = speechSynthesis.getVoices();
+                    const roboticVoice = voices.find(voice => 
+                        voice.name.toLowerCase().includes('male') ||
+                        voice.name.toLowerCase().includes('robot') ||
+                        voice.name.toLowerCase().includes('daniel')
+                    );
+                    
+                    if (roboticVoice) {
+                        utterance.voice = roboticVoice;
+                    }
+                    
+                    // Add glitch effects during speech
+                    utterance.onstart = () => {
+                        this.addSpeechGlitchEffects();
+                    };
+                    
+                    utterance.onend = () => {
+                        this.removeSpeechGlitchEffects();
+                    };
+                    
+                    speechSynthesis.speak(utterance);
+                }
+            }
+            
+            addSpeechGlitchEffects() {
+                // Intensify glitch effects while speaking
+                const head = document.querySelector('.digital-head');
+                head.style.filter = 'hue-rotate(45deg) brightness(1.2)';
+                
+                // Add speaking animation to wireframe
+                const segments = document.querySelectorAll('.wireframe-segment');
+                segments.forEach((segment, index) => {
+                    if (index % 3 === 0) {
+                        segment.style.borderColor = '#ff0';
+                        segment.style.boxShadow = '0 0 15px #ff0, inset 0 0 15px rgba(255, 255, 0, 0.2)';
+                    }
+                });
+            }
+            
+            removeSpeechGlitchEffects() {
+                // Reset glitch effects
+                const head = document.querySelector('.digital-head');
+                head.style.filter = '';
+                
+                const segments = document.querySelectorAll('.wireframe-segment');
+                segments.forEach(segment => {
+                    segment.style.borderColor = '';
+                    segment.style.boxShadow = '';
+                });
+            }
+        }
+
+        // Enhanced glitch effect for cybernetic head
+        function cyborgGlitch() {
+            const head = document.querySelector('.digital-head');
+            const segments = document.querySelectorAll('.wireframe-segment');
+            
+            setInterval(() => {
+                if (Math.random() > 0.85) {
+                    // Major glitch
+                    head.style.filter = 'hue-rotate(90deg) brightness(1.5)';
+                    segments.forEach(segment => {
+                        if (Math.random() > 0.5) {
+                            segment.style.borderColor = '#ff0';
+                            segment.style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+                        }
+                    });
+                    
+                    setTimeout(() => {
+                        head.style.filter = '';
+                        segments.forEach(segment => {
+                            segment.style.borderColor = '';
+                            segment.style.backgroundColor = '';
+                        });
+                    }, 150);
+                }
+            }, 300);
+        }
+
+        // Dancing women interaction with speech
+        function createDancingWomenEffects() {
+            const women = document.querySelectorAll('.pixel-woman');
+            const speechBubble = document.getElementById('speechBubble');
+            
+            // Make women dance more energetically when speaking
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const isActive = speechBubble.classList.contains('active');
+                        women.forEach((woman, index) => {
+                            if (isActive) {
+                                woman.style.animationDuration = '0.8s';
+                                woman.style.transform = 'scale(1.1)';
+                            } else {
+                                woman.style.animationDuration = '1.5s';
+                                woman.style.transform = 'scale(1)';
+                            }
+                        });
+                    }
+                });
+            });
+            
+            observer.observe(speechBubble, { attributes: true });
+        }
+
+        // Advanced Visual Effects Controller
+        class VisualEffectsController {
+            constructor() {
+                this.effects = {
+                    hue: 0,
+                    contrast: 100,
+                    brightness: 100,
+                    saturation: 100,
+                    glow: 50,
+                    blur: 0,
+                    sepia: 0,
+                    negative: false,
+                    grayscale: false,
+                    primaryColor: '#00ffff',
+                    secondaryColor: '#ff00ff'
+                };
+                
+                this.target = document.querySelector('.container');
+                this.matrixRain = document.getElementById('matrixRain');
+                this.glitchBlocks = document.getElementById('glitchBlocks');
+                this.crtEffect = document.getElementById('crtEffect');
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupControlPanel();
+                this.setupSliders();
+                this.setupToggles();
+                this.setupColorPickers();
+                this.applyEffects();
+            }
+            
+            setupControlPanel() {
+                const toggle = document.getElementById('controlToggle');
+                const panel = document.getElementById('controlPanel');
+                
+                toggle.addEventListener('click', () => {
+                    panel.classList.toggle('open');
+                });
+            }
+            
+            setupSliders() {
+                const sliders = [
+                    { id: 'hueSlider', prop: 'hue', suffix: '°', target: 'hueValue' },
+                    { id: 'contrastSlider', prop: 'contrast', suffix: '%', target: 'contrastValue' },
+                    { id: 'brightnessSlider', prop: 'brightness', suffix: '%', target: 'brightnessValue' },
+                    { id: 'saturationSlider', prop: 'saturation', suffix: '%', target: 'saturationValue' },
+                    { id: 'glowSlider', prop: 'glow', suffix: '%', target: 'glowValue' },
+                    { id: 'blurSlider', prop: 'blur', suffix: 'px', target: 'blurValue' },
+                    { id: 'sepiaSlider', prop: 'sepia', suffix: '%', target: 'sepiaValue' }
+                ];
+                
+                sliders.forEach(slider => {
+                    const element = document.getElementById(slider.id);
+                    const valueDisplay = document.getElementById(slider.target);
+                    
+                    element.addEventListener('input', (e) => {
+                        this.effects[slider.prop] = parseFloat(e.target.value);
+                        valueDisplay.textContent = e.target.value + slider.suffix;
+                        this.applyEffects();
+                    });
+                });
+            }
+            
+            setupToggles() {
+                const toggles = [
+                    { id: 'negativeToggle', prop: 'negative' },
+                    { id: 'grayscaleToggle', prop: 'grayscale' },
+                    { id: 'matrixToggle', effect: 'matrix' },
+                    { id: 'scanlinesToggle', effect: 'scanlines' },
+                    { id: 'glitchToggle', effect: 'glitch' },
+                    { id: 'crtToggle', effect: 'crt' }
+                ];
+                
+                toggles.forEach(toggle => {
+                    const element = document.getElementById(toggle.id);
+                    
+                    element.addEventListener('click', () => {
+                        element.classList.toggle('active');
+                        
+                        if (toggle.prop) {
+                            this.effects[toggle.prop] = element.classList.contains('active');
+                            this.applyEffects();
+                        } else if (toggle.effect) {
+                            this.toggleEffect(toggle.effect, element.classList.contains('active'));
+                        }
+                    });
+                });
+            }
+            
+            setupColorPickers() {
+                const primaryPicker = document.getElementById('primaryColor');
+                const secondaryPicker = document.getElementById('secondaryColor');
+                
+                primaryPicker.addEventListener('input', (e) => {
+                    this.effects.primaryColor = e.target.value;
+                    this.applyColorScheme();
+                });
+                
+                secondaryPicker.addEventListener('input', (e) => {
+                    this.effects.secondaryColor = e.target.value;
+                    this.applyColorScheme();
+                });
+            }
+            
+            applyEffects() {
+                let filters = [];
+                
+                if (this.effects.hue !== 0) filters.push(`hue-rotate(${this.effects.hue}deg)`);
+                if (this.effects.contrast !== 100) filters.push(`contrast(${this.effects.contrast}%)`);
+                if (this.effects.brightness !== 100) filters.push(`brightness(${this.effects.brightness}%)`);
+                if (this.effects.saturation !== 100) filters.push(`saturate(${this.effects.saturation}%)`);
+                if (this.effects.blur > 0) filters.push(`blur(${this.effects.blur}px)`);
+                if (this.effects.sepia > 0) filters.push(`sepia(${this.effects.sepia}%)`);
+                if (this.effects.negative) filters.push('invert(1)');
+                if (this.effects.grayscale) filters.push('grayscale(1)');
+                
+                this.target.style.filter = filters.join(' ');
+                
+                // Apply glow effects
+                this.applyGlowEffects();
+            }
+            
+            applyGlowEffects() {
+                const glowIntensity = this.effects.glow;
+                const elements = document.querySelectorAll('.title-letter, .wireframe-segment, .cyber-eye, .cyber-mouth');
+                
+                elements.forEach(el => {
+                    const currentShadow = el.style.textShadow || el.style.boxShadow || '';
+                    if (glowIntensity > 0) {
+                        el.style.filter = `drop-shadow(0 0 ${glowIntensity / 2}px ${this.effects.primaryColor})`;
+                    } else {
+                        el.style.filter = '';
+                    }
+                });
+            }
+            
+            applyColorScheme() {
+                const primary = this.effects.primaryColor;
+                const secondary = this.effects.secondaryColor;
+                
+                // Update CSS custom properties
+                document.documentElement.style.setProperty('--primary-color', primary);
+                document.documentElement.style.setProperty('--secondary-color', secondary);
+                
+                // Update specific elements
+                const styleSheet = document.createElement('style');
+                styleSheet.textContent = `
+                    .wireframe-segment { border-color: ${primary} !important; }
+                    .cyber-eye { border-color: ${primary} !important; }
+                    .cyber-mouth { border-color: ${secondary} !important; }
+                    .title-letter { color: ${primary} !important; }
+                    .speech-bubble { border-color: ${primary} !important; color: ${primary} !important; }
+                    .matrix-column { color: ${secondary} !important; }
+                `;
+                
+                // Remove old style sheet and add new one
+                const oldSheet = document.getElementById('dynamic-colors');
+                if (oldSheet) oldSheet.remove();
+                styleSheet.id = 'dynamic-colors';
+                document.head.appendChild(styleSheet);
+            }
+            
+            toggleEffect(effect, enabled) {
+                switch (effect) {
+                    case 'matrix':
+                        this.matrixRain.style.display = enabled ? 'block' : 'none';
+                        break;
+                    case 'scanlines':
+                        const scanlines = document.querySelector('.scanlines');
+                        if (scanlines) scanlines.style.display = enabled ? 'block' : 'none';
+                        break;
+                    case 'glitch':
+                        this.glitchBlocks.style.display = enabled ? 'block' : 'none';
+                        break;
+                    case 'crt':
+                        this.crtEffect.style.display = enabled ? 'block' : 'none';
+                        break;
+                }
+            }
+        }
+        
+        // Preset configurations
+        const presets = {
+            classic: { hue: 0, contrast: 100, brightness: 100, saturation: 100, glow: 50, primaryColor: '#00ffff', secondaryColor: '#ff00ff' },
+            neon: { hue: 180, contrast: 150, brightness: 120, saturation: 200, glow: 80, primaryColor: '#ff00ff', secondaryColor: '#00ff00' },
+            retro: { hue: 45, contrast: 80, brightness: 90, saturation: 70, glow: 30, primaryColor: '#ffff00', secondaryColor: '#ff8000' },
+            cyberpunk: { hue: 270, contrast: 140, brightness: 110, saturation: 180, glow: 70, primaryColor: '#ff0080', secondaryColor: '#8000ff' },
+            negative: { hue: 0, contrast: 120, brightness: 100, saturation: 100, glow: 60, negative: true, primaryColor: '#ff0000', secondaryColor: '#0000ff' },
+            glitch: { hue: 90, contrast: 200, brightness: 150, saturation: 250, glow: 90, primaryColor: '#00ff80', secondaryColor: '#ff8000' },
+            matrix: { hue: 120, contrast: 100, brightness: 80, saturation: 150, glow: 40, primaryColor: '#00ff00', secondaryColor: '#008000' },
+            reset: { hue: 0, contrast: 100, brightness: 100, saturation: 100, glow: 50, blur: 0, sepia: 0, negative: false, grayscale: false, primaryColor: '#00ffff', secondaryColor: '#ff00ff' }
+        };
+        
+        function applyPreset(presetName) {
+            const preset = presets[presetName];
+            if (!preset) return;
+            
+            // Update sliders and effects
+            Object.keys(preset).forEach(key => {
+                const slider = document.getElementById(key + 'Slider');
+                const toggle = document.getElementById(key + 'Toggle');
+                const picker = document.getElementById(key === 'primaryColor' ? 'primaryColor' : key === 'secondaryColor' ? 'secondaryColor' : null);
+                
+                if (slider) {
+                    slider.value = preset[key];
+                    slider.dispatchEvent(new Event('input'));
+                } else if (toggle) {
+                    if (preset[key]) {
+                        toggle.classList.add('active');
+                    } else {
+                        toggle.classList.remove('active');
+                    }
+                    toggle.dispatchEvent(new Event('click'));
+                } else if (picker) {
+                    picker.value = preset[key];
+                    picker.dispatchEvent(new Event('input'));
+                }
+            });
+        }
+
+        // Initialize all effects
+        window.addEventListener('load', () => {
+            createMatrixRain();
+            createDataStreams();
+            createGlitchBlocks();
+            animateTerminalText();
+            randomGlitch();
+            createWireframeHead();
+            create3DTitle();
+            cyborgGlitch();
+            
+            // Initialize Max Headroom speech system
+            new MaxHeadroomSpeech();
+            
+            // Initialize Visual Effects Controller
+            new VisualEffectsController();
+            
+            // Initialize dancing women effects
+            createDancingWomenEffects();
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            document.getElementById('matrixRain').innerHTML = '';
+            createMatrixRain();
+        });
+
+        // Interactive mouse effect
+        document.addEventListener('mousemove', (e) => {
+            const head = document.querySelector('.head-container');
+            const x = (e.clientX - window.innerWidth / 2) / 50;
+            const y = (e.clientY - window.innerHeight / 2) / 50;
+            head.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+        });
+    </script>
+</body>
+</html>
